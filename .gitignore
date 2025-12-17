@@ -1,0 +1,9 @@
+node_modules/
+thirdapp/node_modules/
+mongo/node_modules/
+nodeApp/node_modules/
+secondapp/node_modules/
+practicaGit.docx
+PracticaGit-LegorretaRodriguez.pdf
+
+.env
