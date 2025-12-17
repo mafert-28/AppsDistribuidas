@@ -1,0 +1,93 @@
+Apps Dis
+instalación de nodeJs
+node trabaja con carpetas 
+	firstapp
+		/node-projects/
+		mkdir firstapp
+
+servicios que tiene el primer ejemplo, solo tiene el servicio root de tipo get y regresa un json donde no hay nada, después tiene la apertura del puerto con el 3000
+
+express permite estándar de restfull
+
+partes de un servicio web:
+	método
+	ruta				 relativas, hay que pegarla a la dirección donde escucha el servidor
+	código asociado a ese servicio  se implementa con funciones anónimas, no tiene nombres solo parámetros
+
+servicios 
+request 	parámetros que el usuario tiene
+response	permite contestar el servicio
+
+********request tiene varios campos
+si se mandan por url se usa req.query
+
+servicio que recibe, forma y manda json se le llama echo
+
+
+
+
+
+14/10/2025
+Apps distribuidas
+cluster es el repo ya físico donde se recibe el proyecto
+
+siempre que se tiene un recurso publico se protege para que evitar que se accedan a nuestros datos
+
+credenciales de MongoDB
+NOSQL
+
+legmafer_db_user
+ZQmLpt0YnguOlShf
+
+
+npm install mongodb
+
+cadena de conexión:
+
+mongodb+srv://legmafer_db_user:ZQmLpt0YnguOlShf@cluster0.kp7b9yo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+
+
+
+
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://legmafer_db_user:ZQmLpt0YnguOlShf@cluster0.kp7b9yo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
+
+crear app que tenga el índice anterior
+
+0.0.0.0/0 para poder conectarse desde cualquier dirección
+
+
+crear una base de datos nueva
+conexión agregada
+aunque este vacia meter código de muestra
+subir al menos 10 documentos 
+
+mañana hacemos búsquedas e inserciones
